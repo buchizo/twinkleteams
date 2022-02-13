@@ -4,20 +4,21 @@
     "version": "0.1",
     "manifest_version": 3,
     "description": "Send Microsoft Teams speaking status to others",
-    "background": {
-        "scripts": ["background.js"]
-    },
     "content_scripts": [
         {
             "matches": [
-                "https://teams.microsoft.com/_#/pre-join-calling/*"
+                "https://teams.microsoft.com/*"
             ],
             "js": [
                 "index.js"
-            ]
+            ],
+            "run_at": "document_end"
         }
     ],
     "permissions": [
-        "https://teams.microsoft.com/_#/pre-join-calling/*", "tabs", "webNavigation"
+        "tabs", "webNavigation"
+    ],
+    "host_permissions": [
+        "https://teams.microsoft.com/*"
     ]
 }
