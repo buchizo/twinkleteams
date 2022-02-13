@@ -1,0 +1,23 @@
+{
+    "name": "Twinkle2Teams",
+    "author": "kosmosebi",
+    "version": "0.1",
+    "manifest_version": 3,
+    "description": "Send Microsoft Teams speaking status to others",
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://teams.microsoft.com/_#/pre-join-calling/*"
+            ],
+            "js": [
+                "index.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "https://teams.microsoft.com/_#/pre-join-calling/*", "tabs", "webNavigation"
+    ]
+}
