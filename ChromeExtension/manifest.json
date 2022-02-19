@@ -15,10 +15,14 @@
             "run_at": "document_end"
         }
     ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "permissions": [
         "tabs", "webNavigation"
     ],
     "host_permissions": [
-        "https://teams.microsoft.com/*"
+        "https://teams.microsoft.com/*",
+        "http://localhost:5132/*"
     ]
 }

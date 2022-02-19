@@ -1,7 +1,6 @@
 (() => {
   "use strict";
   console.log("[twinkle2teams] start extension...");
-
   const body_observer = new MutationObserver(function (mutations) {
     for (const mutation of mutations) {
       if (mutation.type !== "attributes") continue;
@@ -14,12 +13,12 @@
               if (c2.classList.contains("person-name")) {
                 for (const c3 of c2.children) {
                   if (c3.className === "lpc-hoverTarget") {
-                    const status = {
+                    // send status
+                    chrome.runtime.sendMessage({
                       isSpeaking: newval.includes("speaking"),
                       isMuted: newval.includes("is-muted"),
                       name: c3.innerText
-                    };
-                    console.log(status);
+                    });
                   }
                 }
               }
