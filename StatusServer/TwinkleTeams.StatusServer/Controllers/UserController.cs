@@ -12,9 +12,16 @@ namespace TwinkleTeams.StatusServer.Controllers
             Context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-            ViewData["Users"] = Context.Speakers.ToList();
+            if (id.HasValue)
+            {
+                ViewData["Users"] = Context.Speakers.Where(x => x.Id == id.Value).ToList();
+            }
+            else
+            {
+                ViewData["Users"] = Context.Speakers.ToList();
+            }
             return View();
         }
     }
