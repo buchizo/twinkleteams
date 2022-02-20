@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "UserList";
-    var users = ViewData["Users"] as List<Speaker> ?? new List<Speaker>() { new Speaker { Id = "", Name = "hoge", ThumbnailUrl = ""} };
+    var users = ViewData["Users"] as List<Speaker> ?? new List<Speaker>();
     Layout = null;
 }
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
             @foreach(var user in users)
             {
                 <li class="voice-state" data-reactid=".0.0.0.$@(user.Id)/=1$@(user.Id)">
-                  <img class="avatar speaking" src="https://pbs.twimg.com/profile_images/1489187859689279488/KOcT1zXj_400x400.jpg" data-reactid=".0.0.0.$@(user.Id)/=1$@(user.Id).$=10">
+                  <img class="avatar speaking" src="@(user.ThumbnailUrl)" data-reactname="@(user.Name)" data-reactid=".0.0.0.$@(user.Id)/=1$@(user.Id).$=10">
                   <div class="user" data-reactid=".0.0.0.$@(user.Id)/=1$@(user.Id).$/=11">
                     <span class=" name" style="color:#ffffff;font-size:14px;background-color:rgba(30, 33, 36, 0.95);" data-reactid=".0.0.0.$@(user.Id)/=1$@(user.Id).$/=11.0">@(user.Name)</span>
                   </div>
@@ -30,5 +30,7 @@
         </div>
       </div>
     </div>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/userstatus.js"></script>
 </body>
 </html>

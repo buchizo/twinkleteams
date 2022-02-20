@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# EF core
+[Mm]igrations/
+speakers.db
+speakers.db-shm
+speakers.db-wal

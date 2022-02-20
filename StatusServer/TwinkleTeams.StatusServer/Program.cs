@@ -1,4 +1,5 @@
 using TwinkleTeams.StatusServer.Hubs;
+using TwinkleTeams.StatusServer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,8 @@ builder.Services.AddSignalR(options =>
 {
     options.EnableDetailedErrors = true;
 });
+
+builder.Services.AddDbContext<SpeakerDbContext>();
 
 var app = builder.Build();
 
