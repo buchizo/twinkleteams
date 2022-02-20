@@ -14,7 +14,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="ThumbnailUrl" class="control-label"></label>
+                <label asp-for="ThumbnailUrl" class="control-label"></label><br />
+                <img style="max-height:100px; width: 100px;" src="@(Model.ThumbnailUrl)">
                 <input asp-for="ThumbnailUrl" class="form-control" />
                 <span asp-validation-for="ThumbnailUrl" class="text-danger"></span>
             </div>
