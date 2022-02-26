@@ -31,4 +31,9 @@ https://user-images.githubusercontent.com/1254213/155852124-a5290c46-d79e-478c-a
 - URLが変わる場合はChrome Extensionの `manifest.json` 内の `host_permissions` も修正してください
 - CSSサンプル … [一人ずつぴょこぴょこする立ち絵のカスタムCSS / 三日月望](https://n-mikaduki-fb.fanbox.cc/posts/902468)
 - アイコンサイズを参加者別に個別に変えたい、個別のCSSを適用したいといった場合は `/user?id=1` のようにIDを指定してその参加者だけのステータスをOBSなどで指定、カスタムCSS適用などすると楽です。
+- Teams参加者が「高品質のミュージックモード」を使用している場合、常時Speaking状態になる場合があります。（立ち絵に変化がなくなる）
+  - ![image](https://user-images.githubusercontent.com/1254213/155852375-6fff1d0b-256f-43ae-85f3-adc2b0641b45.png)
+  - ![image](https://user-images.githubusercontent.com/1254213/155852408-c720224a-8f0c-46c0-a556-564f12fa07c3.png)
+
+
 
