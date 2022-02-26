@@ -1,5 +1,9 @@
 # Microsoft Teams でもぴょこぴょこするアレ
 
+Microsoft Teams の会議参加者が喋るとぴょこぴょこする（ための元データ）を生成します。
+
+https://user-images.githubusercontent.com/1254213/155852124-a5290c46-d79e-478c-a7a5-1e74f0cd511e.mp4
+
 ## セットアップ
 
 ### サーバー
@@ -25,3 +29,6 @@
 - `http://localhost:5132/Home/Wstest` で受信したメッセージの name とAdminで登録したNameが一致する必要があります
 - Chrome Extension内からSignalRサーバーへの接続など適当なのでStatusServerを起動してからMicrosoft Teamsに接続するとかしたほうがよいかも
 - URLが変わる場合はChrome Extensionの `manifest.json` 内の `host_permissions` も修正してください
+- CSSサンプル … [一人ずつぴょこぴょこする立ち絵のカスタムCSS / 三日月望](https://n-mikaduki-fb.fanbox.cc/posts/902468)
+- アイコンサイズを参加者別に個別に変えたい、個別のCSSを適用したいといった場合は `/user?id=1` のようにIDを指定してその参加者だけのステータスをOBSなどで指定、カスタムCSS適用などすると楽です。
+
