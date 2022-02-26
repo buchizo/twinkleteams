@@ -41,13 +41,14 @@ namespace TwinkleTeams.StatusServer.Controllers
             {
                 var name = collection["Name"];
                 var url = collection["ThumbnailUrl"];
+                var displayname = collection["DisplayName"];
 
                 if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(url))
                 {
                     throw new Exception("invalid parameters");
                 }
 
-                Context.Speakers.Add(new Speaker { Name = name, ThumbnailUrl = url });
+                Context.Speakers.Add(new Speaker { Name = name, ThumbnailUrl = url, DisplayName = displayname });
                 await Context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -77,6 +78,7 @@ namespace TwinkleTeams.StatusServer.Controllers
 
                 var name = collection["Name"];
                 var url = collection["ThumbnailUrl"];
+                var displayname = collection["DisplayName"];
 
                 if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(url))
                 {
@@ -85,6 +87,7 @@ namespace TwinkleTeams.StatusServer.Controllers
 
                 target.Name = name;
                 target.ThumbnailUrl = url;
+                target.DisplayName = displayname;
                 Context.Speakers.Update(target);
                 await Context.SaveChangesAsync();
 

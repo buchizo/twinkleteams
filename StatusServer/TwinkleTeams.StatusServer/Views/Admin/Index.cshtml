@@ -16,6 +16,9 @@
                 @Html.DisplayNameFor(model => model.ThumbnailUrl)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DisplayName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th></th>
@@ -26,6 +29,9 @@
         <tr>
             <td>
                 <img style="max-height:50px; width: 50px;" src="@(item.ThumbnailUrl)">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
