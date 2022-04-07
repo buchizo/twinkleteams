@@ -12,7 +12,7 @@
             "js": [
                 "index.js"
             ],
-            "run_at": "document_end"
+            "run_at": "document_idle"
         }
     ],
     "background": {
