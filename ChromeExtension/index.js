@@ -14,10 +14,10 @@
                 for (const c3 of c2.children) {
                   if (c3.className === "lpc-hoverTarget") {
                     // send status
-                    chrome.runtime.sendMessage({
+                    sendstatus({
                       isSpeaking: newval.includes("speaking"),
                       isMuted: newval.includes("is-muted"),
-                      name: c3.innerText
+                      name: c3.innerText,
                     });
                   }
                 }
@@ -38,4 +38,8 @@
     subtree: true,
     attributeFilter: ["class"]
   });
+
+  const sendstatus = (msg) => {
+    chrome.runtime.sendMessage(msg);
+  };
 })();
