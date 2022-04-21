@@ -12,7 +12,7 @@
             for (const c2 of c1.children) {
               if (c2.classList.contains("person-name")) {
                 for (const c3 of c2.children) {
-                  if (c3.className === "lpc-hoverTarget") {
+                  if (c3.className === "lpcCommonWeb-hoverTarget") {
                     // send status
                     sendstatus({
                       isSpeaking: newval.includes("speaking"),
