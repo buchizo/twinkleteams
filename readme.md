@@ -9,6 +9,7 @@ https://user-images.githubusercontent.com/1254213/155852124-a5290c46-d79e-478c-a
 ### サーバー
 
 1. `StatusServer\TwinkleTeams.StatusServer` で以下のコマンドを実行
+  - `dotnet tool install --global dotnet-ef`
   - `dotnet ef migrations add Initial`
   - `dotnet ef database update`
  
