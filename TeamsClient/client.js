@@ -1,15 +1,22 @@
 import { CallClient } from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
+import * as signalR from "@microsoft/signalr";
 
 let call;
 let callAgent;
 const meetingLinkInput = document.getElementById('teams-link-input');
 const acsKeyInput = document.getElementById('acs-key-input');
+const signalrServerInput = document.getElementById('signalr-server-input');
 const initButton = document.getElementById('init-button');
 const hangUpButton = document.getElementById('hang-up-button');
 const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
 const callStateElement = document.getElementById('call-state');
 const observeMemberStateButton = document.getElementById('observe-member-state-button');
+
+let connection = new signalR.HubConnectionBuilder()
+  .withUrl(signalrServerInput.value)
+  .build();
+connection.start();
 
 async function init() {
     const callClient = new CallClient();
@@ -40,6 +47,16 @@ async function isSpeakingCallback(id, name, state) {
         li.textContent = `${name}:[${id}] ${stateMessage}`;
         document.getElementById("members").appendChild(li);
     }
+
+    connection
+    .invoke("SendMessage", JSON.stringify({
+        isSpeaking: state,
+        name: name
+    }))
+    .catch(function (err) {
+      console.log(err.toString());
+      return true;
+    });
 }
 
 teamsMeetingJoinButton.addEventListener("click", () => {
