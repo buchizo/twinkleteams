@@ -65,6 +65,8 @@ teamsMeetingJoinButton.addEventListener("click", () => {
         callStateElement.innerText = call.state;
         if (call.state === "Connected") {
             observeMemberStateButton.disabled = false;
+            call.mute();
+            call.muteIncomingAudio();
         }
     });
     
